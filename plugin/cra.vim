@@ -37,6 +37,9 @@ function! IsPublicHoliday(year, month, day)
 endfunction
 
 function! Bootstrap(year, country)
+    setlocal textwidth=120
+    set filetype=cra
+
     let i = 1
     call Headerq()
     while i <= 12
