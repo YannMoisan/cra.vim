@@ -67,7 +67,9 @@ function! Line(year, month, country)
     while i <= 31
         let day = system('date -d ' . a:year . '-' . a:month . '-' . i . ' +%u')
         let day = substitute(day, '\n', '', 'g')
-        if (day == 6 || day == 7)
+        if (day =~# "invalid")
+            let sday = '**'
+        elseif (day == 6 || day == 7)
             let sday = 'XX'
         elseif (a:country == 'fr' && IsPublicHoliday(a:year, a:month, i))
             let sday = 'FE'
